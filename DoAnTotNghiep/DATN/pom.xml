@@ -42,11 +42,11 @@
 			<optional>true</optional>
 		</dependency>
 		<!-- SQL Server -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<scope>runtime</scope>
-		</dependency> -->
+		</dependency>
 		<!-- MY SQL -->
 		<dependency>
 			<groupId>mysql</groupId>
