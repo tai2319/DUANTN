@@ -16,6 +16,7 @@
 
 <body class="container-fluid">
     <header>
+        <!-- Thêm logo và thanh tìm kiếm  hotline ở trên -->
         <div class="row">
             <div th:replace="/layout/_navbar.html"></div>
 
@@ -38,16 +39,19 @@
                 <div th:replace="${main}"></div>
             </div>
         </div>
+        <div class="row">
+            <div th:replace="/layout/_carousel.html"></div>
 
+            <div th:replace="/layout/_propreties.html"></div>
+
+            <div th:replace="/layout/_review.html"></div>
+
+        </div>
     </div>
-    <div class="row">
-        <div th:replace="/layout/_carousel.html"></div>
+    <footer>
 
-        <div th:replace="/layout/_propreties.html"></div>
+    </footer>
 
-        <div th:replace="/layout/_review.html"></div>
-
-    </div>
 </body>
 
 </html>
