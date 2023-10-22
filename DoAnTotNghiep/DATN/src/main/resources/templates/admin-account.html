@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
@@ -79,4 +79,134 @@
         </tr>
     </table>
 </body>
+</html> -->
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Furniture E-Commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/Logo1.png" />
+  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+</head>
+
+<body>
+  <!--  Body Wrapper -->
+  <div class="container">
+    <h1 class="text-center">Thêm tài khoản</h1>
+    <form method="post" th:action="@{/admin/accounts/add}">
+      <div class="form-group row">
+        <label for="ten-tai-khoan" class="col-md-4 col-form-label text-center">Tên tài khoản</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="username" name="username">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="mat-khau" class="col-md-4 col-form-label text-center">Mật khẩu</label>
+        <div class="col-md-8">
+          <input type="password" class="form-control" id="password" name="password">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-md-4 col-form-label text-center">Email</label>
+        <div class="col-md-8">
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="ho-ten" class="col-md-4 col-form-label text-center">Họ và tên</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="fullName" name="fullName">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="dia-chi" class="col-md-4 col-form-label text-center">Địa chỉ</label>
+        <div class="col-md-8">
+          <input type="text" class="form-control" id="address" name="address">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="vai-tro" class="col-md-4 col-form-label text-center">Vai trò</label>
+        <div class="col-md-8">
+          <select class="form-control" id="vai-tro" name="vai_tro">
+            <option value="USER">Khách Hàng</option>
+            <option value="STAFF">Nhân Viên</option>
+            <option value="ADMIN">Quản Lý</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary mt-3">Thêm</button>
+    </form>
+  </div>
+  <h1>Tìm kiếm </h1>
+  <form th:action="@{/admin/accounts/searchName}" method="get">
+    <div class="form-group">
+      <label for="name">Tên</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Nhập tên">
+    </div>
+  </form>
+  <form th:action="@{/admin/accounts/searchId}" method="get">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="number" class="form-control" id="id" name="id" placeholder="Nhập ID">
+    </div>
+  </form>
+  <form th:action="@{/admin/accounts}" method="get">
+    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+  </form>
+  <hr>
+  <div class="d-flex justify-content-center">
+    <a href="index.php?action=show_all" class="btn btn-primary">Show all</a>
+  </div>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Quản Lí Tài Khoản</h5>
+              <div class="card mb-0">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên tài khoản</th>
+                        <th>Mật khẩu</th>
+                        <th>Email</th>
+                        <th>Họ và tên</th>
+                        <th>Địa chỉ</th>
+                        <th>Vai trò</th>
+                        <th>Actions</th>
+                    </tr>
+                    
+                    <tr th:each="account : ${accounts}">
+                        <td th:text="${account.userId}"></td>
+                        <td th:text="${account.username}"></td>
+                        <td th:text="${account.password}"></td>
+                        <td th:text="${account.email}"></td>
+                        <td th:text="${account.fullName}"></td>
+                        <td th:text="${account.address}"></td>
+                        <td th:text="${account.role}"></td>
+                        <td>
+                        <a th:href="@{'/admin/accounts/edit/' + ${account.userId}}">Edit</a>
+                        <a th:href="@{'/admin/accounts/delete/' + ${account.userId}}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/js/sidebarmenu.js"></script>
+  <script src="../assets/js/app.min.js"></script>
+  <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+</body>
+
 </html>
