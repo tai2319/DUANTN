@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="/assets/css/bootstrapjs/cdn.jsdelivr.net_npm_bootstrap@5.1.3_dist_js_bootstrap.bundle.min.js"></script>
     <link rel="stylesheet"
         href="/assets/css/bootstapcss/cdn.jsdelivr.net_npm_bootstrap@5.1.3_dist_css_bootstrap.min.css">
@@ -17,13 +17,13 @@
 <body class="container-fluid">
     <header>
         <!-- Thêm logo và thanh tìm kiếm  hotline ở trên -->
-        <div class="row">
-            <div th:replace="/layout/_navbar.html"></div>
 
-        </div>
-        <div class="row">
-            <div th:replace="/layout/_banner.html"></div>
-        </div>
+        <div th:replace="/layout/_navbar.html"></div>
+
+
+
+        <div th:replace="/layout/_banner.html"></div>
+
     </header>
     <nav>
         <div class="row">
