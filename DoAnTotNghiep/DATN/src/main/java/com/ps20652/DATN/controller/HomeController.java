@@ -14,8 +14,9 @@ public class HomeController {
     }
 
     // @GetMapping("/detail")
+
     // public String product() {
-    // return " redirect:/product/productdetail";
+    // return " /product/productdetail";
     // }
 
     // @GetMapping({ "admin", "admin/home/index" })
