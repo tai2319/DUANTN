@@ -1,38 +1,237 @@
-input[type = "checkbox"]:enabled:checked {
-    outline: black !important;
-    background-color : #ffc107 !important;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
 }
 
-
-.card-category{
-
-    border: 0.5px solid #00000010;
-    box-shadow: 0px 4px 30px 0 #00000010;
-
+.logo {
+    margin-left: 120px;
 }
 
-.card-wrapper {
+.menu {
+
     display: flex;
-}
-.card{
-    margin:0.5em;
-    width: calc(100%/2);
-}
-.card:hover{
-    box-shadow: 0px 4px 30px 0px #19141410;
-}
-.img-wrapper {
-    height: 20vw;
-    margin: 0 auto;
-    /* display: flex;
     align-items: center;
-    justify-content: center; */
+    justify-content: space-between;
+    width: 80%;
+    padding-left: 20px;
+    margin-left: 270px;
+
+}
+
+.nav-item {
+    margin: 0px 35px;
+}
+
+.text-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px;
+}
+
+.inner-box img {
+    margin-right: 15px;
+}
+
+.box-text {
+    margin-left: 50px;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.category {
+    border: 2px solid #00bac9;
+}
+
+.col-inner {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex: 1 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    width: 100%;
+}
+
+@media screen and (min-width: 850px) {
+    .col:first-child .col-inner {
+        margin-left: auto;
+        margin-right: 0;
+    }
+}
+
+.inner-home {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.inner-home .item-home-parent {
+    width: 25%;
+    padding: 10px;
+}
+
+.item-home-parent .item-category {
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 8%);
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.2s linear;
+    display: block;
+}
+
+.item-category {
+    color: #098f9a;
+    text-decoration: none;
+}
+
+.item-home-parent img {
+    margin-bottom: 0;
+    height: 60px;
+    object-fit: contain;
+}
+
+.item-home-parent img {
+    max-width: 70%;
+}
+
+img {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+img {
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+img {
+    border-style: none;
+}
+
+.product-bo {
+    width: 100%;
+    border-bottom: 2px solid #bbcbdc;
+    margin-bottom: 30px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 80%;
+    max-height: 100%;
+    background-color: #098f9a;
+    padding: 15px 40px;
+    border-radius: 5px;
+}
+
+.title-text a {
+    font-weight: 600;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.title-right {
+    display: flex;
+    align-items: center;
+    flex: 0 0 70%;
+    justify-content: flex-end;
+    max-width: 100%;
+
+}
+
+.item-title {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #6d7d8e;
+    padding-left: 25px;
+
+}
+
+.item-title a {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    color: #6d7d8e;
+}
+
+.item-title .mode {
+    color: #00bac9;
+}
+
+/* productlist */
+.card-item {
+
+
+    border-radius: 5px;
+}
+
+.card-body a {
+    text-decoration: none;
+}
+
+/* carousel index */
+.counter-box {
+    display: block;
+    background: #f6f6f6;
+    padding: 40px 20px 37px;
+    text-align: center
+}
+
+.counter-box p {
+    margin: 5px 0 0;
+    padding: 0;
+    color: #909090;
+    font-size: 18px;
+    font-weight: 500
+}
+
+.counter-box i {
+    font-size: 60px;
+    margin: 0 0 15px;
+    color: #d2d2d2
+}
+
+.counter {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    color: #666;
+    line-height: 28px
+}
+
+.counter-box.colored {
+    background: #3acf87;
+}
+
+.counter-box.colored p,
+.counter-box.colored i,
+.counter-box.colored .counter {
+    color: #fff
+}
+
+/*  */
+
+.card {
+
+    border: none;
+}
+
+.user-content p {
+    margin-top: 5px;
+    font-size: 12px;
 }
 
 
-
-.img-wrapper img {
-    max-width: 100%;
-    max-height: 100%;
+.ratings i {
+    color: blue;
 }
