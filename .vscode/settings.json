@@ -1,4 +1,6 @@
-// {
+{
+    "java.compile.nullAnalysis.mode": "automatic"
+} // {
 // <<<<<<< HEAD
 //     "liveServer.settings.port": 5501
 // }
