@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="dynamic(main)">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -12,37 +12,12 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/assets/css/style.css">
-
-
 </head>
 
-<body class="container-fluid">
-
-
+<body>
     <div th:replace="/layout/_navbar.html"></div>
-
-    <div th:replace="/layout/_banner.html"></div>
-
-
-
-    <div th:replace="/layout/_category.html"></div>
-
-
-    <!-- <div th:replace="${main}"></div> -->
-
-
-
-    <div th:replace="/layout/_carousel.html"></div>
-
-    <div th:replace="/layout/_propreties.html"></div>
-
+    
     <div th:replace="/layout/_review.html"></div>
-
-
-
-    <footer>
-
-    </footer>
 
 </body>
 

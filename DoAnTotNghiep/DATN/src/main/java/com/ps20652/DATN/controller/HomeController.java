@@ -13,8 +13,12 @@ public class HomeController {
         return "product/list";
     }
 
-    // @GetMapping("/detail")
+    @GetMapping("/about")
+    public String about() {
+        return "layout/About";
+    }
 
+    // @GetMapping("/detail")
     // public String product() {
     // return " /product/productdetail";
     // }
