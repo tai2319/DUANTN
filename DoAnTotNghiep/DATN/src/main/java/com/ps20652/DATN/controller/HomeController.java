@@ -10,12 +10,17 @@ public class HomeController {
 
     @GetMapping({ "", "home/index" })
     public String home() {
-        return "product/list";
+        return "component/index";
     }
 
     @GetMapping("/about")
-    public String about() {
-        return "layout/About";
+    public String About() {
+        return "component/About";
+    }
+
+    @GetMapping("/new")
+    public String New() {
+        return "component/New";
     }
 
     // @GetMapping("/detail")

@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="navbar">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
+<div th:fragment="nav">
     <nav class="navbar navbar-expand-lg navbar-light  d-flex flex-column mb-0 pt-3">
         <div class="container-fluid container-lg mb-2 mb-lg-0 " style="width: 80%;">
 
@@ -50,10 +41,10 @@
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Trang chủ</a>
+                            <a class="nav-link active" aria-current="page" th:href="@{/home/index}">Trang chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giới thiệu</a>
+                            <a class="nav-link" th:href="@{/about}">Giới thiệu</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -61,7 +52,7 @@
                                 Trang trí nhà cửa
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item">Action</a></li>
                                 <li><a class="dropdown-item" href="#">Another action</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
@@ -70,7 +61,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#" aria-disabled="true">Tin tức</a>
+                            <a class="nav-link" th:href="@{/new}" aria-disabled="true">Tin tức</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" aria-disabled="true">Dự án</a>
@@ -84,6 +75,4 @@
             </div>
         </div>
     </nav>
-</body>
-
-</html>
+</div>
