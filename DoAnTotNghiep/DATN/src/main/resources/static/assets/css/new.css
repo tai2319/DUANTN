@@ -2,11 +2,11 @@ li {
     margin: 8px
 }
 
-li a:focus,
+/* li a:focus,
 li a:active {
     outline: none !important;
     box-shadow: none !important
-}
+} */
 
 .pagination-lg .page-item:first-child .page-link {
     border-top-left-radius: 0.5rem;
@@ -42,9 +42,7 @@ li a {
     text-decoration: none
 }
 
-img {
-    opacity: 0.5
-}
+
 
 @media (max-width: 767px) {
     img {
