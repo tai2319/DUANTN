@@ -23,6 +23,11 @@ public class HomeController {
         return "component/New";
     }
 
+    @GetMapping("/contact")
+    public String Contact() {
+        return "component/Contact";
+    }
+
     // @GetMapping("/detail")
     // public String product() {
     // return " /product/productdetail";
