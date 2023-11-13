@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Furniture E-Commerce</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/Logo1.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/styles.min.css" />
 </head>
 
@@ -19,7 +20,7 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="../assets/images/logos/logo2.png" width="60" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -33,7 +34,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -45,7 +46,7 @@
               <span class="hide-menu">Quản Lí </span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/products}" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
@@ -53,15 +54,15 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/accounts}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-user"></i>
                 </span>
                 <span class="hide-menu">Tài Khoản</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/revenue-chart}" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
@@ -69,7 +70,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/feedbacks}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -77,14 +78,22 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/orders}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-shopping-cart"></i>
                 </span>
                 <span class="hide-menu">Đơn Hàng</span>
               </a>
             </li>
-            <li class="nav-small-cap">
+            <li class="sidebar-item">
+              <a class="sidebar-link" th:href="@{/admin/vouchers}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-ticket"></i>
+                </span>
+                <span class="hide-menu">Mã giảm giá</span>
+              </a>
+            </li>
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
             </li>
@@ -103,8 +112,8 @@
                 </span>
                 <span class="hide-menu">Register</span>
               </a>
-            </li>
-            <li class="nav-small-cap">
+            </li> -->
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">EXTRA</span>
             </li>
@@ -123,7 +132,7 @@
                 </span>
                 <span class="hide-menu">Sample Page</span>
               </a>
-            </li>
+            </li> -->
           </ul>
          
         </nav>
@@ -159,19 +168,8 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    
+                    <a href="../security/login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -185,6 +183,12 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title fw-semibold mb-4">Đơn Hàng</h5>
+              <a th:href="@{/admin/orders/trash}" class="btn btn-danger">
+              Thùng rác
+    <i class="fas fa-trash-alt"></i>
+    
+</a>
+
               <div class="card">
                 <table class="table table-striped">
                   <thead>
@@ -192,36 +196,49 @@
                       <th>Mã đơn hàng</th>
                       <th>Tên khách hàng</th>
                       <th>Số điện thoại</th>
-                      <th>Địa chỉ</th>
+                      <th>Tổng tiền</th>
+               
                       <th>Trạng thái</th>
-                      <th>Thời gian dự kiến</th>
+              
                     </tr>
                   </thead>
+                  
+                  
                   <tbody>
-                    <tr>
-                      <td>1234567890</td>
-                      <td>Nguyễn Văn A</td>
-                      <td>0987654321</td>
-                      <td>Hà Nội</td>
-                      <td>Đã giao hàng</td>
-                      <td>2023-07-20 12:00:00</td>
-                    </tr>
-                    <tr>
-                      <td>9876543210</td>
-                      <td>Trần Thị B</td>
-                      <td>0123456789</td>
-                      <td>TP. Hồ Chí Minh</td>
-                      <td>Đang vận chuyển</td>
-                      <td>2023-07-20 10:00:00</td>
-                    </tr>
-                    <tr>
-                      <td>0987654321</td>
-                      <td>Lê Quang C</td>
-                      <td>0901234567</td>
-                      <td>Đà Nẵng</td>
-                      <td>Chưa giao hàng</td>
-                      <td>2023-07-20 08:00:00</td>
-                    </tr>
+                  
+                  
+                    <tr th:each="order : ${orders}" th:if="${order.status != 'Thùng rác'}">
+                    <td th:text="${order.orderId}"></td>
+                    <td th:text="${order.fullName}"></td>
+                    <td th:text="'0' +${order.phone}"></td>
+                    <td th:text="${order.totalPrice}"></td>
+                 
+                    <td th:text="${order.status}"></td>
+                    <td>
+                        <a th:href="@{'/orderDetails?orderId=' + ${order.orderId}}">Chi tiết</a>
+                    </td>
+                    <td>
+                        <form th:if="${order.status == 'Đang giao hàng'}" th:action="@{'/admin/orders/cancel'}" method="post">
+                            <input type="hidden" th:name="orderId" th:value="${order.orderId}">
+                            <button type="submit" class="btn btn-danger">Hủy xác nhận</button>
+                        </form>
+                        <form th:if="${order.status == 'Đã giao hàng thành công'}" th:action="@{'/admin/orders/viewReview'}" method="post">
+                            <input type="hidden" th:name="orderId" th:value="${order.orderId}">
+                            <input type="hidden" th:name="userId" th:value="${order.user.userId}">
+                            
+                            <button type="submit" class="btn btn-info">Xem đánh giá</button>
+                        </form>
+                        <form th:if="${order.status == 'Chờ xác nhận'}" th:action="@{'/admin/orders/confirm'}" method="post">
+                            <input type="hidden" th:name="orderId" th:value="${order.orderId}">
+                            <button type="submit" class="btn btn-primary">Xác nhận đơn hàng</button>
+                        </form>
+                        <form th:if="${order.status == 'Đơn hàng hủy'}" th:action="@{'/admin/orders/moveToTrash'}" method="post">
+   					 <input type="hidden" th:name="orderId" th:value="${order.orderId}">
+    					<button type="submit" class="btn btn-warning">Chuyển vào thùng rác</button>
+						</form>
+                    </td>
+                </tr>
+                    
                   </tbody>
                 </table>
               

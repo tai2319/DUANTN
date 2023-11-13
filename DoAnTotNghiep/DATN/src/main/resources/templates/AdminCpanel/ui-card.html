@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
   <meta charset="utf-8">
@@ -19,21 +19,21 @@
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="./index.html" class="text-nowrap logo-img">
-            <img src="../assets/images/logos/dark-logo.svg" width="180" alt="" />
+            <img src="../assets/images/logos/logo2.png" width="60" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
         <!-- Sidebar navigation-->
-        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+      <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./index.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/}" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -45,7 +45,7 @@
               <span class="hide-menu">Quản Lí </span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-buttons.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/products}" aria-expanded="false">
                 <span>
                   <i class="ti ti-article"></i>
                 </span>
@@ -53,15 +53,15 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/accounts}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-alert-circle"></i>
+                  <i class="ti ti-user"></i>
                 </span>
                 <span class="hide-menu">Tài Khoản</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/revenue-chart}" aria-expanded="false">
                 <span>
                   <i class="ti ti-cards"></i>
                 </span>
@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/feedbacks}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -77,14 +77,22 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/orders}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-shopping-cart"></i>
                 </span>
                 <span class="hide-menu">Đơn Hàng</span>
               </a>
             </li>
-            <li class="nav-small-cap">
+            <li class="sidebar-item">
+              <a class="sidebar-link" th:href="@{/admin/vouchers}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-ticket"></i>
+                </span>
+                <span class="hide-menu">Mã giảm giá</span>
+              </a>
+            </li>
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
             </li>
@@ -103,8 +111,8 @@
                 </span>
                 <span class="hide-menu">Register</span>
               </a>
-            </li>
-            <li class="nav-small-cap">
+            </li> -->
+            <!-- <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">EXTRA</span>
             </li>
@@ -123,8 +131,9 @@
                 </span>
                 <span class="hide-menu">Sample Page</span>
               </a>
-            </li>
+            </li> -->
           </ul>
+         
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -170,6 +179,14 @@
                       <i class="ti ti-list-check fs-6"></i>
                       <p class="mb-0 fs-3">My Task</p>
                     </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-settings fs-6"></i>
+                      <p class="mb-0 fs-3">Setting</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-shopping-cart fs-6"></i>
+                      <p class="mb-0 fs-3">Cart</p>
+                    </a>
                     <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
@@ -180,117 +197,77 @@
       </header>
       <!--  Header End -->
       
-      <div class="container-fluid">
-        <div class="container-fluid">
-          <div class="card">
-            <div class="card-body">
-              <div class="row">
-                <div class="col-md-12">
-                  <h5 class="card-title fw-semibold mb-4">Quản Lí Doanh Thu</h5>
-                  <canvas id="myChart"></canvas>
-                  <table class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Tháng</th>
-                        <th>Doanh thu</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Tháng 1</td>
-                        <td>100.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 2</td>
-                        <td>250.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 3</td>
-                        <td>300.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 4</td>
-                        <td>120.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 5</td>
-                        <td>280.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 6</td>
-                        <td>400.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 7</td>
-                        <td>800.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 8</td>
-                        <td>150.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 9</td>
-                        <td>600.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 10</td>
-                        <td>450.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 11</td>
-                        <td>320.000</td>
-                      </tr>
-                      <tr>
-                        <td>Tháng 12</td>
-                        <td>1000.000</td>
-                      </tr>
-                    </tbody>
-                  </table>
-
-
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-              </div>
+      
+      
+       <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="card-title fw-semibold mb-4">Quản Lí Doanh Thu</h5>
+                <h5>Tổng doanh thu: <span th:text="${totalRevenue} + 'K'"></span></h5>
+              <canvas id="myChart"></canvas>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Tháng</th>
+                    <th>Doanh thu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr th:each="entry : ${monthlyRevenues}">
+                    <td th:text="${entry.key}"></td> <!-- Tháng -->
+                    <td th:text="${entry.value}"></td> <!-- Doanh thu -->
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  </div>
+  </div>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+  <script th:inline="javascript">
+    var monthlyRevenues = /*[[${monthlyRevenues}]]*/ [];
+
+    var months = Object.keys(monthlyRevenues); // Lấy danh sách tháng
+    var revenueValues = Object.values(monthlyRevenues); // Lấy danh sách doanh thu
+
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const myChart = new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: months, // Sử dụng mảng tháng
+        datasets: [{
+          label: "Doanh thu",
+          data: revenueValues, // Sử dụng mảng doanh thu
+          fill: false,
+          borderColor: "#000000",
+          pointBorderColor: "#000000",
+          pointRadius: 5,
+        }],
+      },
+      options: {
+        title: {
+          text: "Biểu đồ doanh thu",
+          fontSize: 20,
+        },
+        yAxis: {
+          title: {
+            text: "Doanh thu (VND)"
+          },
+        },
+      },
+    });
+  </script>
   <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
 </body>
-<script>
-  
-  const ctx = document.getElementById("myChart").getContext("2d");
-  const myChart = new Chart(ctx, {
-    type: "line",
-    data: {
-      labels: ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6", "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"],
-      datasets: [{
-        label: "Doanh thu",
-        data: [300000, 250000, 300000 , 120000 , 200000 , 400000 , 800000 , 150000 , 600000 , 450000 , 320000 , 1000000],
-        fill: false,
-        borderColor: "#000000",
-        pointBorderColor: "#000000",
-        pointRadius: 5,
-      }],
-    },
-    options: {
-      title: {
-        text: "Biểu đồ doanh thu",
-        fontSize: 20,
-      },
-      yAxis: {
-        title: {
-          text: "Doanh thu (VND)"
-        },
-      },
-    },
-  });
-  </script>
 </html>
