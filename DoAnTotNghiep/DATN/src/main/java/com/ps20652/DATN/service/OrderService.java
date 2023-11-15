@@ -1,13 +1,51 @@
 package com.ps20652.DATN.service;
 
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
+
 import com.ps20652.DATN.entity.Order;
 
-import java.util.List;
-import java.util.Optional;
+
 
 public interface OrderService {
-    List<Order> getAllOrders();
-    Optional<Order> getOrderById(Long orderId);
-    Order saveOrder(Order order);
-    void deleteOrder(Long orderId);
+
+	
+	
+
+
+	public Order create(Order order);
+	
+	List<Order> getOrders (String username);
+	
+	Order getOrderById (Integer orderId);
+	
+	List<Order> getAllOrders();	
+	
+	Order updateOrder(Order order);
+
+	
+	 public void cancelOrder(Integer orderId);
+	
+	 public List<Order> getOrdersByStatus(String status);
+	 
+	 void deleteById(Integer orderId);
+	 
+	 Page<Order> getAllOrdersPaginated(PageRequest pageRequest);
+	 
+//	public Product findbyId(Integer id);
+//	
+//	public Product findbyIdPro(Product product);
+//	
+//	Product update(Product product);
+//
+//	void delete(Product id);
+//	
+//	List<Product> findByName(String name);
+//	
+//	List<Product> findByPrice(double minPrice, double maxPrice);
+//	
+//	List<Product> findByCategoryCategoryId(int categoryId);
 }

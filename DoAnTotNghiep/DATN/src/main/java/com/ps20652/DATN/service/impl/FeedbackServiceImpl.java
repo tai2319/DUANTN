@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ps20652.DATN.DAO.CustomerFeedbackDAO;
+import com.ps20652.DATN.dao.CustomerFeedbackDAO;
 import com.ps20652.DATN.entity.CustomerFeedback;
 import com.ps20652.DATN.service.FeedbackService;
 

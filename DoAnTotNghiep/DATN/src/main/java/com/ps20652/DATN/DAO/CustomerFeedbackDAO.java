@@ -1,4 +1,4 @@
-package com.ps20652.DATN.DAO;
+package com.ps20652.DATN.dao;
 
 import java.util.List;
 
@@ -12,5 +12,7 @@ public interface CustomerFeedbackDAO extends JpaRepository<CustomerFeedback, Int
 	List<CustomerFeedback> findByCustomerUserId(Integer customer);
 	
 	List<CustomerFeedback> findByProductProductId(int feedback_id);
+	
+//	 List<CustomerFeedback> findByOrderIdAndUserId(Integer orderId, Integer userId);
 	
 }

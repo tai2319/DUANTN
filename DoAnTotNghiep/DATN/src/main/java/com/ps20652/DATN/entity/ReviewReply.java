@@ -22,7 +22,7 @@ public class ReviewReply implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "reply_id")
-    private int replyId;
+    private Integer replyId;
 
     @ManyToOne
     @JoinColumn(name = "feedback_id")
@@ -35,5 +35,5 @@ public class ReviewReply implements Serializable {
     @Column(name = "reply_text", length = 255)
     private String replyText;
     
-    // Các getter và setter
+
 }

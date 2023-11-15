@@ -4,39 +4,48 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Products")
 @Data
-public class Product implements Serializable{
-	   @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "product_id")
-	    private int productId;
+public class Product implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "product_id")
+    private int productId;
 
-	    @Column(name = "name", length = 255)
-	    private String name;
+    @Column(name = "name", length = 255)
+    private String name;
 
-	    @Column(name = "description", length = 200)
-	    private String description;
+    @Column(name = "description", length = 200)
+    private String description;
 
-	    @Column(name = "price")
-	    private Double price;
-	    
-	    @Column(name = "price_staff")
-	    private Double priceStaff;
+    @Column(name = "price")
+    private Integer price;
+    
 
-	    @Column(name = "quantity_in_stock")
-	    private int quantityInStock;
+    @Column(name = "quantity_in_stock")
+    private int quantityInStock;
 
-	    @ManyToOne
-	    @JoinColumn(name = "category_id")
-	    private Category category;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
-	   
-	    @Column(name = "image")
-	    private String image;
+   
+    @Column(name = "image")
+    private String image;
+    
+    @Column(name = "quantity_added")
+    private Integer quantityAdded;
+    
+    @Column(name = "purchase_price")
+    private Integer purchasePrice;
+    
+
 }
+
 

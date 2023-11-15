@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ps20652.DATN.DAO.CustomerFeedbackDAO;
-import com.ps20652.DATN.DAO.ReviewReplyDAO;
+import com.ps20652.DATN.dao.CustomerFeedbackDAO;
+import com.ps20652.DATN.dao.ReviewReplyDAO;
 import com.ps20652.DATN.entity.CustomerFeedback;
 import com.ps20652.DATN.entity.ReviewReply;
 import com.ps20652.DATN.service.FeedbackService;
@@ -37,9 +37,12 @@ public class ReviewReplyServiceImpl implements ReviewReplyService {
 		reviewReplyDAO.delete(id);
 	}
 	@Override
-	public List<ReviewReply> findByCustomerFeedbackFeedbackId(int replyId) {
-		return reviewReplyDAO.findByCustomerFeedbackFeedbackId(replyId);
+	public List<ReviewReply> findByFeedbackId(int feedbackId) {
+		return reviewReplyDAO.findByCustomerFeedbackFeedbackId(feedbackId);
 	}
+
+
+
 	
 	
 

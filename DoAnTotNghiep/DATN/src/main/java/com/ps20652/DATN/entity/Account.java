@@ -4,8 +4,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
+
+
 
 @SuppressWarnings("serial")
 
@@ -20,6 +24,9 @@ public class Account implements Serializable {
 
     @Column(name = "username", length = 50)
     private String username;
+    
+    @Column(name = "phonenumber")
+    private Integer phonenumber;
 
     @Column(name = "password", length = 255)
     private String password;
@@ -34,7 +41,7 @@ public class Account implements Serializable {
     private String address;
 
     @Column(name = "role", length = 50)
-    private String role;
+    private String role = "USER";
     
     @Column(name = "photo")
     private String photo;
@@ -45,4 +52,14 @@ public class Account implements Serializable {
     @Column(name = "otp_created_at")
     private LocalDateTime otpCreatedAt;
     
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "Account_Voucher",	
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "voucher_id")
+    )
+    private Set<Voucher> vouchers = new HashSet<>();
+    
+    public boolean hasVoucher(Voucher voucher) {
+        return vouchers.contains(voucher);
+    }
 }

@@ -4,72 +4,53 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "Orders")
 @Data
-
 public class Order implements Serializable{
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private Long orderId;
+    private int orderId;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Account user;
 
     @Column(name = "order_date")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
 
-    @Column(name = "total_price", precision = 10, scale = 2)
-    private BigDecimal totalPrice;
+    @Column(name = "total_price")
+    private Double totalPrice;
 
     @Column(name = "status", length = 50)
     private String status;
+    
+    @Column(name = "phone")
+    private Integer phone;
+    
+    @Column(name = "address", length = 255)
+    private String address;
+    
+    @Column(name = "fullname", length = 255)
+    private String fullName;
+    
+    @Column(name = "description", length = 255)
+    private String description;
+    
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetail> orderDetails = new ArrayList<>();
+    
+    @ManyToOne
+    @JoinColumn(name = "voucher_id")
+    private Voucher voucher; // Thêm trường để lưu trữ thông tin về mã voucher đã sử dụng
 
-    // Getters and setters
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public Account getUser() {
-        return user;
-    }
-
-    public void setAccount(Account user) {
-        this.user = user;
-    }
-
-    public Date getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public BigDecimal getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(BigDecimal totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }
+
