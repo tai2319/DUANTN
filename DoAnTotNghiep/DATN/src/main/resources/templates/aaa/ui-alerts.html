@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Furniture E-Commerce</title>
-  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/logo2.png" />
-  <link rel="stylesheet" href="../assets/css/styles.min.css" />
+  <link rel="shortcut icon" type="image/png" href="/assets/images/logos/logo2.png" />
+  <link rel="stylesheet" href="/assets/css/styles.min.css" />
 </head>
 
 <body>
@@ -26,7 +26,7 @@
           </div>
         </div>
         <!-- Sidebar navigation-->
-     <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
@@ -69,7 +69,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" th:href="@{/admin/feedback}" aria-expanded="false">
+              <a class="sidebar-link" th:href="@{/admin/feedbacks}" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -79,25 +79,17 @@
             <li class="sidebar-item">
               <a class="sidebar-link" th:href="@{/admin/orders}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-shopping-cart"></i>
                 </span>
                 <span class="hide-menu">Đơn Hàng</span>
               </a>
             </li>
-             <li class="sidebar-item">
+            <li class="sidebar-item">
               <a class="sidebar-link" th:href="@{/admin/vouchers}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-typography"></i>
+                  <i class="ti ti-ticket"></i>
                 </span>
                 <span class="hide-menu">Mã giảm giá</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" th:href="@{/admin/history}" aria-expanded="false">
-                <span>
-                  <i class="ti ti-typography"></i>
-                </span>
-                <span class="hide-menu">Lịch sử nhập hàng</span>
               </a>
             </li>
             <!-- <li class="nav-small-cap">
@@ -141,7 +133,7 @@
               </a>
             </li> -->
           </ul>
-         
+
         </nav>
         <!-- End Sidebar navigation -->
       </div>
@@ -167,34 +159,16 @@
             </li>
           </ul>
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
-            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">              <li class="nav-item dropdown">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <li class="nav-item dropdown">
                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <img src="../assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-user fs-6"></i>
-                      <p class="mb-0 fs-3">My Profile</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-mail fs-6"></i>
-                      <p class="mb-0 fs-3">My Account</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-list-check fs-6"></i>
-                      <p class="mb-0 fs-3">My Task</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-settings fs-6"></i>
-                      <p class="mb-0 fs-3">Setting</p>
-                    </a>
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                      <i class="ti ti-shopping-cart fs-6"></i>
-                      <p class="mb-0 fs-3">Cart</p>
-                    </a>
-                    <a href="./authentication-login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    
+                    <a href="/security/login.html" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
@@ -207,15 +181,68 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title fw-semibold mb-4">Quản Lí Tài Khoản</h5>
+              <h5 class="card-title fw-semibold mb-4 d-flex align-items-center">Quản Lí Tài Khoản <button type="button"
+                  class="btn btn-primary mx-5 fs-2 " data-bs-toggle="modal" data-bs-target="#exampleModal"
+                  data-bs-whatever="@mdo">Thêm tài khoản</button>
+
+                <form class="d-flex" th:action="@{/admin/accounts/searchName}" method="get">
+                  <input class="form-control me-2" type="text" name="username" placeholder="Tìm kiếm tên " required>
+                  <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <form style="font-size: larger; " class="d-flex justify-content-end  flex-grow-1  fs-6 " th:action="@{/admin/accounts}" method="get">
+                  <button class="border-0 bg-transparent" type="submit"><ion-icon style="font-size: 2rem; " name="reload-outline"></ion-icon></button>
+              </form>
+              </h5>
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Thêm sản phẩm</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <form method="post" th:action="@{/admin/accounts/add}">
+                        <label for="username">Tên tài khoản:</label>
+                        <input type="text" id="username" name="username" required><br><br>
+
+                        <label for="password">Mật khẩu:</label>
+                        <input type="password" id="password" name="password" required><br><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="fullName">Họ và tên:</label>
+                        <input type="text" id="fullName" name="fullName" required><br><br>
+
+                        <label for="address">Địa chỉ:</label>
+                        <input type="text" id="address" name="address" required><br><br>
+
+                        <label for="role">Vai trò:</label>
+                        <select id="role" name="role" required>
+                          <option value="USER">Khách Hàng</option>
+                          <option value="STAFF">Nhân Viên</option>
+                          <option value="ADMIN">Quản Lý</option>
+                        </select><br>
+                        <br>
+                        <button type="submit">Thêm tài khoản</button>
+                      </form>
+
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
               <div class="card mb-0">
                 <table class="table table-striped">
                   <thead>
                     <tr>
                       <th>ID</th>
-             
-                      <th>Username</th>
+                      <th>Tài Khoản</th>
+                      <th>Mật Khẩu</th>
                       <th>Email</th>
+                
                       <th>Họ Tên</th>
                       <th>Địa Chỉ</th>
                       <th>Vai Trò</th>
@@ -224,22 +251,22 @@
                   </thead>
                   <tbody>
                     <tr th:each="account : ${accounts}">
-                    <td th:text="${account.userId}"></td>
-            <td th:text="${account.username}"></td>
-            
-            <td th:text="${account.email}"></td>
-            <td th:text="${account.fullName}"></td>
-            <td th:text="${account.address}"></td>
-            <td th:text="${account.role}"></td>
-            <td>
-            <a th:href="@{'/admin/accounts/edit/' + ${account.userId}}">Edit</a> |
-            <a th:href="@{'/admin/accounts/delete/' + ${account.userId}}">Delete</a>
-            </td>
+                      <td th:text="${account.userId}"></td>
+                      <td th:text="${account.username}"></td>
+                      <td th:text="${account.password}"></td>
+                      <td th:text="${account.email}"></td>
+                      <td th:text="${account.fullName}"></td>
+                      <td th:text="${account.address}"></td>
+                      <td th:text="${account.role}"></td>
+                      <td>
+                        <a th:href="@{'/admin/accounts/edit/' + ${account.userId}}">Edit</a> |
+                        <a th:href="@{'/admin/accounts/delete/' + ${account.userId}}">Delete</a>
+                      </td>
                     </tr>
                   </tbody>
-                
+
                 </table>
-                
+
               </div>
             </div>
           </div>
@@ -251,6 +278,8 @@
   <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="../assets/js/sidebarmenu.js"></script>
   <script src="../assets/js/app.min.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
   <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
 </body>
 
