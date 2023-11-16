@@ -45,10 +45,7 @@
 .contact-form .input-text.not-empty+.label {
     -webkit-transform: translateY(-24px);
     transform: translateY(-24px);
-
 }
-
-
 
 .contact-form .label {
     position: absolute;
