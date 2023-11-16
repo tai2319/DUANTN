@@ -3,7 +3,6 @@ package com.ps20652.DATN.entity;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.*;
 @SuppressWarnings("serial")
@@ -18,9 +17,4 @@ public class Category implements Serializable {
 
     @Column(name = "name", length = 100)
     private String name;
-    
-    @OneToMany(mappedBy = "category") // A category can have multiple products
-    private List<Product> products;
-    
-    
 }

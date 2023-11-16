@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ps20652.DATN.dao.AccountDAO;
+import com.ps20652.DATN.DAO.AccountDAO;
 import com.ps20652.DATN.entity.Account;
 import com.ps20652.DATN.entity.Product;
 import com.ps20652.DATN.service.AccountService;
@@ -48,8 +48,8 @@ public class AccountREST {
 		a_service.delete(id);
 	}
 	@GetMapping("/account/searchByUsername")
-	    public Account searchUsername(@RequestParam String username) {
-	        return a_service.findByUsername(username);
+	    public List<Account> searchUsername(@RequestParam String username) {
+	        return a_service.findByUsernamee(username);
     }
 	 @PostMapping("account/forgot-password")
 	    public ResponseEntity<String> forgotPassword(@RequestParam String email) {

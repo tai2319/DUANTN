@@ -15,22 +15,21 @@ public class Revenue implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "revenue_id")
-    private Integer revenueId;
+    private int revenueId;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id")	
+    @JoinColumn(name = "customer_id")
     private Account customer;
 
-    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "order_date")
     private Date orderDate;
 
     @Column(name = "total_amount")
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 
     @Column(name = "payment_method", length = 50)
     private String paymentMethod;

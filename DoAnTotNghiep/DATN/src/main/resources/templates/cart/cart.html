@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{/component/layout :: areas(~{::title},~{::body})}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOFA | Giỏ Hàng Của Bạn</title>
+</head>
+
+<body>
+    <article class="container-fluid container-lg mx-auto mt-5 " style="margin-bottom: 12%;">
+
+        <section class="mx-auto d-flex flex-column align-items-center">
+            <div class="w-100">
+                <div class="d-flex border rounded row ">
+                    <div class="d-flex col-3 align-items-center">
+                        <input type="checkbox">
+                        <p class="mt-3 mx-2">Sản Phẩm</p>
+                    </div>
+                    <!--  -->
+                    <div class="col-9 d-flex justify-content-around mt-3">
+                        <div class="row w-100">
+                            <div class="col-4">
+                                <p>Tên Sản Phẩm</p>
+                            </div>
+                            <div class="col-2">
+                                <p>Giá</p>
+                            </div>
+                            <div class="col-2">
+                                <p>Số Lượng</p>
+                            </div>
+                            <div class="col-2">
+                                <p>Tổng Giá</p>
+                            </div>
+                            <div class="col-2">
+                                <p>Thao Tác</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- List Sản Phẩm -->
+            <div class="w-100 mt-3 " th:each="item : ${cartItems}">
+                <div class="d-flex border rounded row ">
+                    <div class="d-flex col-3 align-items-center">
+                        <input type="checkbox">
+                        <img class="mx-2 py-2" style="width: 30%;"
+                            src="https://down-vn.img.susercontent.com/file/df293b02e5c8571a4acc651f9c5275c4" alt="">
+                    </div>
+                    <!--  -->
+                    <div class="col-9 d-flex justify-content-around align-items-center mt-3">
+                        <div class="row w-100  ">
+                            <div class="col-4">
+                                <p th:text="${item.product.name}"></p>
+                            </div>
+                            <div class="col-2 text-danger">
+                                <p th:text="${item.product.price} + 'k'"></p>
+                            </div>
+                            <div class="col-2">
+                                <form th:action="@{/cart/updateItem}" class="" method="post">
+                                    <input hidden="" type="text" name="productId"
+                                        th:value="${item.product.productId}" />
+                                    <input type="number" class="w-50 text-center" name="qty" th:value="${item.quantity}"
+                                        onblur="this.form.submit()" min="1" />
+                                </form>
+                            </div>
+                            <div class="col-2">
+                                <p th:text="${item.product.price * item.quantity}"></p>
+                            </div>
+                            <div class="col-2 text-danger">
+                                <form th:action="@{/cart/removeItem}" method="post">
+                                    <input type="hidden" name="productId" th:value="${item.product.productId}" />
+                                    <button type="submit" class="border-0 bg-white text-danger">Remove</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+        <!-- Mua hàng -->
+
+        <div class="fixed-bottom container d-flex flex-column align-items-center py-2 ">
+            <div class="w-100 bg-white ">
+                <div class=" border rounded  px-3 ">
+                    <div class="d-flex justify-content-between align-items-center pt-3 border-bottom">
+                        <p class="pt-2">Voucher</p>
+                        <a
+                            class=" text-black text-warning-hover link-offset-2 link-offset-3-hover link-underline-warning link-underline-opacity-0 link-underline-opacity-75-hover">Chọn
+                            Voucher</a>
+                    </div>
+                    <!--  -->
+                    <div class=" d-flex justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <input class="" type="checkbox">
+                            <p class="mx-3 mt-3">Chọn Tất Cả</p>
+                        </div>
+                        <div class="d-flex align-items-center ">
+                            <p class='mt-3 mx-5'>Tổng Thanh Toán: <span class="text-danger"
+                                    th:text="${cartAmount} + ' K'"></span></p>
+                            <a class="text-white px-5 bg-warning border-0 rounded py-1 text-decoration-none"
+                                th:href="@{/pay}">Mua Hàng</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </article>
+    <!-- Cart -->
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="item : ${cartItems}">
+                <td><img width="100" th:src="@{'/assets/images/' + ${item.product.image}}" alt="Product Image" /></td>
+                <td th:text="${item.product.name}">Product Name</td>
+                <td th:text="${item.product.price} + 'K'">Price</td>
+                <td>
+                    <form th:action="@{/cart/updateItem}" method="post">
+                        <input hidden="" type="text" name="productId" th:value="${item.product.productId}" /> <input
+                            type="number" name="qty" th:value="${item.quantity}" onblur="this.form.submit()" min="1" />
+                    </form>
+                </td>
+                <td th:text="${item.product.price * item.quantity}">Total</td>
+                <td>
+                    <form th:action="@{/cart/removeItem}" method="post">
+                        <input type="hidden" name="productId" th:value="${item.product.productId}" />
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                    </form>
+                </td>
+            </tr>
+
+
+
+        </tbody>
+
+    </table>
+    <div>
+        <h4>Tổng:</h4>
+        <h1 th:text="${cartAmount} + ' K'">Total Amount</h1>
+    </div>
+
+    <a th:href="@{/pay}">Chuyển tới trang thanh toán</a>
+
+
+
+</body>
+
+</html>

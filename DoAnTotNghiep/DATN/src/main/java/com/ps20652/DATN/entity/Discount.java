@@ -22,7 +22,7 @@ public class Discount implements Serializable{
     private Product product;
 
     @Column(name = "discount_percentage")
-    private Integer discountPercentage;
+    private BigDecimal discountPercentage;
 
     @Column(name = "start_date")
     private Date startDate;

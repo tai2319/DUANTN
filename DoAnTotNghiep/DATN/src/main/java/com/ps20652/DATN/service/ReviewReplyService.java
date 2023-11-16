@@ -15,9 +15,7 @@ public interface ReviewReplyService {
 	
 //	List<ReviewReply> findByUserId(Integer userId);
 	
-	List<ReviewReply> findByFeedbackId(int feedbackId);
+	List<ReviewReply> findByCustomerFeedbackFeedbackId(int replyId);
 	
 	void delete(ReviewReply id);
-	
-
 }

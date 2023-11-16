@@ -39,8 +39,6 @@ public class ReviewReplyREST {
 		return rv_service.findAll();
 	}
 	
-	
-	
 	  @PostMapping("/reply/create")
 	    public ReviewReply createReply(@RequestBody ReviewReply reply) throws Exception {
 	        // Tìm người dùng và đánh giá liên quan
@@ -58,10 +56,9 @@ public class ReviewReplyREST {
 	
 	@GetMapping("/reply/feedback/{feedbackId}")
 	public List<ReviewReply> getFeedbackId(@PathVariable Integer feedbackId) {
-		return rv_service.findByFeedbackId(feedbackId);
+		return rv_service.findByCustomerFeedbackFeedbackId(feedbackId);
 }
 	
-
 	
 	
 //	@GetMapping("/feedback/{feedbackId}")
