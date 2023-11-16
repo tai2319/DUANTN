@@ -36,5 +36,8 @@ public interface ProductService {
 	List<Product> findByPrice(double minPrice, double maxPrice);
 	
 	List<Product> findByCategoryCategoryId(int categoryId);
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)
 }

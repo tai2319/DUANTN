@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // package com.ps20652.DATN.controller;
 
 // import java.util.List;
@@ -136,6 +137,8 @@
 // }
 // }
 =======
+=======
+>>>>>>> parent of d5754ee (tai)
 package com.ps20652.DATN.controller;
 
 
@@ -266,4 +269,7 @@ public class AdminAccountController {
 	        return "admin-account"; // Trả về view để hiển thị kết quả tìm kiếm
 	    }
 }
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)

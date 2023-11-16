@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // package com.ps20652.DATN.controller;
 //
 // import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@
 // }
 // }
 =======
+=======
+>>>>>>> parent of d5754ee (tai)
 //package com.ps20652.DATN.controller;
 //
 //import org.springframework.stereotype.Controller;
@@ -30,4 +33,7 @@
 //		return "cart/view";
 //	}
 //}
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)

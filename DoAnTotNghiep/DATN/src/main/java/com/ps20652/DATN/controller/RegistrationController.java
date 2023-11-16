@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 // package com.ps20652.DATN.controller;
 
 // import com.ps20652.DATN.entity.Account;
@@ -38,6 +39,8 @@
 // }
 // }
 =======
+=======
+>>>>>>> parent of d5754ee (tai)
 package com.ps20652.DATN.controller;
 
 import com.ps20652.DATN.entity.Account;
@@ -75,4 +78,7 @@ public class RegistrationController {
         return "register";
     }
 }
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)
