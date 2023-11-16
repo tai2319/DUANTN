@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 // package com.ps20652.DATN.controller;
 
 // import java.util.List;
@@ -139,6 +140,8 @@
 =======
 =======
 >>>>>>> parent of d5754ee (tai)
+=======
+>>>>>>> parent of d5754ee (tai)
 package com.ps20652.DATN.controller;
 
 
@@ -270,6 +273,9 @@ public class AdminAccountController {
 	    }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)
 =======
 >>>>>>> parent of d5754ee (tai)

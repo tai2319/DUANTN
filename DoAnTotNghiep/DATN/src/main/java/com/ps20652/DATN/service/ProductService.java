@@ -37,6 +37,9 @@ public interface ProductService {
 	
 	List<Product> findByCategoryCategoryId(int categoryId);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d5754ee (tai)
+=======
 >>>>>>> parent of d5754ee (tai)
 =======
 >>>>>>> parent of d5754ee (tai)
